@@ -1,24 +1,35 @@
 import logo from './logo.svg';
 import './App.css';
+import { HashRouter as Router, Route } from "react-router-dom";
+import { AppsProvider } from "./context";
+
+import Login from "./page/login";
+import Register from "./page/register";
+import Dashboard from "./page/dashboard";
+import LoginOrganizer from "./page/login-organizer";
+import RegisterOrganizer from "./page/register-organizer";
+import DashboardOrganizer from "./page/dashboard-organizer";
+import DashboardOrganizerDetail from "./page/dashboard-organizer-detail";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppsProvider>
+        <div>
+          <Router>
+            <Route path="/" exact component={Login} />
+            <Route path="/register" exact component={Register}></Route>
+            <Route path="/dashboard" exact component={Dashboard}></Route>
+            <Route path="/organizer/" exact component={LoginOrganizer}></Route>
+            <Route path="/organizer/register" exact component={RegisterOrganizer}></Route>
+            <Route path="/organizer/dashboard" exact component={DashboardOrganizer}></Route>
+            <Route path="/organizer/dashboard/event" exact component={DashboardOrganizerDetail}></Route>
+            {/*<Route path="/Pendaftaran/pasien" component={TambahPendaftar}></Route>
+            <Route path="/Pendaftaran/list" component={Antrian}></Route>
+            <Route path="/Printformpasien" component={Printformpasien}></Route>
+            <Route path="/Umum/Nursestation" component={NurseStation}></Route> */}
+          </Router>
+        </div>
+      </AppsProvider>
   );
 }
 

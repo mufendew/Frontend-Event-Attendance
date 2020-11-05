@@ -4,6 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+
+import axios from 'axios';
+
+axios.defaults.baseURL = 'http://localhost:8000/';
+axios.defaults.headers.common['Authorization'] = 'bearer '+sessionStorage.getItem('token');
+// axios.defaults.headers.post['Content-Type'] = 'application/json';
+
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

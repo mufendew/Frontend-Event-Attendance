@@ -1,0 +1,10 @@
+.judul-table{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    margin: 0px;
+    color :white;
+}
+.card-header{
+    padding: 5px 20px;
+    background-color: #b41200;
+}
